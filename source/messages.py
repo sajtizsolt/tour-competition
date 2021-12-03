@@ -1,12 +1,20 @@
 class Messages:
 
   HELP = '''
-    Usage:  python main.py { FILE | COMMAND [# COMMAND ...] }
+    Usage:  python main.py { FILE | COMMAND [COMMAND ...] }
 
     where COMMAND is
 
       TEAM_NAME PERSON_NAME [PERSON_NAME] [PERSON_NAME] [PERSON_NAME]
       [PERSON_NAME] [PERSON_NAME]
+
+    and
+
+      TEAM_NAME can only contain A-z letters, 0-9 numbers and _ characters
+
+    and
+
+      PERSON_NAME can only contain A-z letters, 0-9 numbers and _ characters
 
     Notes:
 

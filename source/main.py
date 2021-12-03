@@ -1,7 +1,10 @@
 from argumentparser import ArgumentParser
 
+import sys
+
 def main():
-  ArgumentParser.verify_arguments()
+  argument_parser = ArgumentParser()
+  argument_parser.verify_arguments(sys.argv)
 
 if __name__ == '__main__':
   main()
