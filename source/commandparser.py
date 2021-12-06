@@ -1,3 +1,6 @@
+from messages import Messages
+from util import print_help_and_exit
+
 import re
 
 class CommandParser:
@@ -9,10 +12,12 @@ class CommandParser:
     print(command)
     command_parts = command.split(" ")
     command_parts_length = len(command_parts)
-    if command_parts_length < 2 or command_parts_length > 7:
-      print("TODO: Invalid command length")
+    if command_parts_length < 2:
+      print_help_and_exit(Messages.TOO_SHORT_COMMAND)
+    elif command_parts_length > 7:
+      print_help_and_exit(Messages.TOO_LONG_COMMAND)
     if not re.fullmatch(self.REGEX_TEAM, command_parts[0]) :
-      print("TODO: Invalid team name")
+      print_help_and_exit(Messages.INVALID_TEAM_NAME)
     for i in range(1, command_parts_length):
       if not re.fullmatch(self.REGEX_PERSON, command_parts[i]):
-        print("TODO: Invalid person name")
+        print_help_and_exit(Messages.INVALID_MEMBER_NAME)
