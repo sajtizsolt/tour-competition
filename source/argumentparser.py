@@ -4,6 +4,7 @@ from messages import Messages
 from util import print_help_and_exit
 
 import os
+import sys
 
 class ArgumentParser:
 

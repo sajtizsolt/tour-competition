@@ -9,14 +9,12 @@ class CommandParser:
   REGEX_PERSON = re.compile("[a-zA-Z0-9_]+")
 
   def verify_command(self, command):
-    print(command)
     command_parts = command.split(" ")
     command_parts_length = len(command_parts)
     if command_parts_length < 2:
       print_help_and_exit(Messages.TOO_SHORT_COMMAND)
     elif command_parts_length > 7:
       print_help_and_exit(Messages.TOO_LONG_COMMAND)
-    member_names = set()
     self.verify_team_name(command_parts[0])
     self.verify_member_names(command_parts[1 : command_parts_length])
 

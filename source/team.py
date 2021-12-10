@@ -5,6 +5,7 @@ class Team:
 
   def __init__(self, name):
     self.name = name
+    self.members = set()
 
   def __eq__(self, other):
     if isinstance(other, Team):
