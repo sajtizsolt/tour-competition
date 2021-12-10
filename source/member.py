@@ -1,10 +1,8 @@
 class Member:
 
-  name = None
-  is_stolen = False
-
   def __init__(self, name):
     self.name = name
+    self.is_stolen = False
 
   def __eq__(self, other):
     if isinstance(other, Member):

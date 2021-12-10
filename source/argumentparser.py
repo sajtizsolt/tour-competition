@@ -8,9 +8,10 @@ import sys
 
 class ArgumentParser:
 
-  command_parser = CommandParser()
-  file_parser = FileParser()
-  is_file = True
+  def __init__(self):
+    self.command_parser = CommandParser()
+    self.file_parser = FileParser()
+    self.is_file = True
 
   def verify_arguments(self, arguments):
     argument_count = len(arguments)

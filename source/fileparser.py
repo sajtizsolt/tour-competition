@@ -2,7 +2,8 @@ from commandparser import CommandParser
 
 class FileParser:
 
-  command_parser = CommandParser()
+  def __init__(self):
+    self.command_parser = CommandParser()
 
   def verify_file(self, filename):
     file = open(filename, 'r')

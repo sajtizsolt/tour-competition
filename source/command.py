@@ -1,8 +1,5 @@
 class Command:
 
-  team_name = None
-  member_names = set()
-
   def __init__(self, raw_command):
     command_parts = raw_command.split(' ')
     self.team_name = command_parts[0]

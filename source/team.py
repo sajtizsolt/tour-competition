@@ -1,8 +1,5 @@
 class Team:
 
-  name = None
-  members = set()
-
   def __init__(self, name):
     self.name = name
     self.members = set()
@@ -20,3 +17,6 @@ class Team:
 
   def __str__(self):
     return f'{self.name}'
+
+  def contains_member(self, member_name):
+    return member_name in self.members

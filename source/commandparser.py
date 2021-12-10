@@ -5,8 +5,9 @@ import re
 
 class CommandParser:
 
-  REGEX_TEAM = re.compile("[a-zA-Z0-9_]+")
-  REGEX_PERSON = re.compile("[a-zA-Z0-9_]+")
+  def __init__(self):
+    self.REGEX_TEAM = re.compile("[a-zA-Z0-9_]+")
+    self.REGEX_PERSON = re.compile("[a-zA-Z0-9_]+")
 
   def verify_command(self, command):
     command_parts = command.split(" ")
