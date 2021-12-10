@@ -16,7 +16,7 @@ class Command:
     members_hash = 1
     for member in self.member_names:
       members_hash = members_hash * hash(member)
-    return 37 * hash(self.team_name) * hash(self.is_stolen)
+    return 37 * hash(self.team_name) * members_hash
 
   def __str__(self):
     members = ''

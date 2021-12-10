@@ -19,4 +19,10 @@ class Team:
     return f'{self.name}'
 
   def contains_member(self, member_name):
-    return member_name in self.members
+    for member in self.members:
+      if member.name == member_name:
+        return True
+    return False
+
+  def is_complete(self):
+    return len(self.members) == 3
