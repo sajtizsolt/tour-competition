@@ -49,6 +49,9 @@ class Messages:
   '''
 
   INVALID_MEMBER_NAME = '''
-    The given member name is invalid. A member name can only contain lower and
-    uppercase letters, numbers and underscore characters.
+    The given member name is invalid. A member name can only contain lower and uppercase letters, numbers and underscore characters.
+  '''
+
+  MEMBER_NAME_DUPLICATE = '''
+    A command is invalid. A member name can only appear once in a command.
   '''
