@@ -191,8 +191,8 @@ class DatabaseTest(unittest.TestCase):
     database.execute_command(Command('T2 M2'))
 
     self.assertEqual(2, len(database.teams))
-    self.assertEqual(4, len(database.members))
-    self.assertEqual(3, len(database.get_existing_team('T1').members))
+    self.assertEqual(3, len(database.members))
+    self.assertEqual(2, len(database.get_existing_team('T1').members))
     self.assertEqual(1, len(database.get_existing_team('T2').members))
 
 

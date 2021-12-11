@@ -75,6 +75,8 @@ class Database:
 
   def is_all_stolen_except(self, team_name, member_name):
     team = self.get_existing_team(team_name)
+    if len(team.members) == 1 and team.contains_member(member_name):
+      return False
     for member in team.members:
       if member_name != member.name and not member.is_stolen:
         return False
@@ -90,14 +92,20 @@ class Database:
     print(f'> {member_name} is a new member of {team_name}.')
 
   def add_new_member_to_existing_team(self, team_name, member_name):
+    existing_team = self.get_existing_team(team_name)
+    if existing_team.is_complete():
+      print(f'> The team is already complete!')
+      return
     new_member = Member(member_name)
     self.members.add(new_member)
-    existing_team = self.get_existing_team(team_name)
     existing_team.members.add(new_member)
     print(f'> {team_name} is an existing team.')
     print(f'> {member_name} is a new member of {team_name}.')
 
   def delete_member_from_team(self, team_name, member_name):
+    if self.is_all_stolen_except(team_name, member_name):
+      print(f'> The team would contain only stolen members!')
+      return
     existing_member = self.get_existing_member(member_name)
     existing_team = self.get_existing_team(team_name)
     existing_team.members.remove(existing_member)
