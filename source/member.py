@@ -10,7 +10,7 @@ class Member:
     return False
 
   def __hash__(self):
-    return 37 * hash(self.name) * hash(self.is_stolen)
+    return hash(id(self))
 
   def __str__(self):
     if self.is_stolen:

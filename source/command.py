@@ -11,7 +11,7 @@ class Command:
     return False
 
   def __hash__(self):
-    return 37 * hash(self.team_name) * hash(self.member_name)
+    return hash(id(self))
 
   def __str__(self):
     return f'{self.team_name} {self.member_name}'
