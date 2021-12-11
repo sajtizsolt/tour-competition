@@ -5,8 +5,7 @@ class Messages:
 
     where COMMAND is
 
-      TEAM_NAME PERSON_NAME [PERSON_NAME] [PERSON_NAME] [PERSON_NAME]
-      [PERSON_NAME] [PERSON_NAME]
+      TEAM_NAME PERSON_NAME
 
     and
 
@@ -25,22 +24,16 @@ class Messages:
   '''
 
   TOO_FEW_ARGUMENTS = '''
-    Too few command line arguments. You must specify the file that contain the
-    commands, or a list of commands (at least one)!
+    Too few command line arguments. You must specify the file that contain the commands, or a list of commands (at least one)!
   '''
 
   INVALID_FILE_PATH = '''
     The specified file path is invalid. Please check if the given file exists.
   '''
 
-  TOO_SHORT_COMMAND = '''
-    The given command is too short. A command should contain at least a team
-    name and a member name.
-  '''
-
-  TOO_LONG_COMMAND = '''
-    The given command is too long. A command should contain a team name and at
-    most six member names.
+  INVALID_COMMAND = '''
+    The specified command is invalid. A command should contain exactly one
+    team name and exactly one member name.
   '''
 
   INVALID_TEAM_NAME = '''
@@ -50,8 +43,4 @@ class Messages:
 
   INVALID_MEMBER_NAME = '''
     The given member name is invalid. A member name can only contain lower and uppercase letters, numbers and underscore characters.
-  '''
-
-  MEMBER_NAME_DUPLICATE = '''
-    A command is invalid. A member name can only appear once in a command.
   '''
