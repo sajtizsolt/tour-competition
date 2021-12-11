@@ -9,14 +9,17 @@ class Team:
         return self.name == other.name and self.members == other.members
     return False
 
+  def __ne__(self, other):
+    return not self == other
+
   def __hash__(self):
-    members_hash = 1
-    for member in self.members:
-      members_hash = members_hash * hash(member)
-    return 37 * hash(self.name) * hash(members_hash)
+    return hash(id(self))
 
   def __str__(self):
-    return f'{self.name}'
+    members_str = ''
+    for member in self.members:
+      members_str += f' {member}'
+    return f'{self.name}{members_str}'
 
   def contains_member(self, member_name):
     for member in self.members:
