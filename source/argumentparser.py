@@ -33,4 +33,4 @@ class ArgumentParser:
     if self.is_file:
       return self.file_parser.get_commands(arguments[1])
     else:
-      return sys.argv[1, len(sys.argv)]
+      return sys.argv[1 : len(sys.argv)]

@@ -225,5 +225,35 @@ class DatabaseTest(unittest.TestCase):
 
 
 
+  def test_steal_member_from_another_team_and_member_further_stolen(self):
+    m1 = Member('M1')
+    m2 = Member('M2')
+    m2.is_stolen = True
+    m3 = Member('M3')
+    m4 = Member('M4')
+    t1 = Team('T1')
+    t1.members.add(m1)
+    t1.members.add(m2)
+    t2 = Team('T2')
+    t2.members.add(m3)
+    t2.members.add(m4)
+    database = Database()
+    database.teams.add(t1)
+    database.teams.add(t2)
+    database.members.add(m1)
+    database.members.add(m2)
+    database.members.add(m3)
+    database.members.add(m4)
+
+    database.execute_command(Command('T2 M2'))
+
+    self.assertEqual(2, len(database.teams))
+    self.assertEqual(4, len(database.members))
+    self.assertEqual(1, len(database.get_existing_team('T1').members))
+    self.assertEqual(3, len(database.get_existing_team('T2').members))
+    self.assertTrue(m2.is_stolen)
+
+
+
 if __name__ == '__main__':
   unittest.main()
